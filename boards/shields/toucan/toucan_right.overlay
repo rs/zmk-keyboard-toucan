@@ -62,6 +62,13 @@
         status = "okay";
         dr-gpios = <&gpio0 2 (GPIO_ACTIVE_HIGH)>;
         sensitivity = "2x";
+        /*
+         * Improve tap detection by lowering the minimum Z threshold required
+         * for touch detection (defaults are x=5, y=4 in cirque-input-module).
+         * If you start getting accidental taps, raise these back up.
+         */
+        x-axis-z-min = <3>;
+        y-axis-z-min = <3>;
         x-invert;
 	    //sleep;
     };
