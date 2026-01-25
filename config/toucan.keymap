@@ -25,11 +25,12 @@
         bt_clr_hold2s: bt_clr_hold2s {
             compatible = "zmk,behavior-hold-tap";
             label = "BT_CLR_HOLD2S";
-            #binding-cells = <0>;
+            /* Pass through args to hold binding (BT_* is 2 cells) */
+            #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
             hold-trigger-on-release;
-            bindings = <&bt BT_CLR &trans>;
+            bindings = <&bt &trans>;
         };
     };
 
@@ -62,7 +63,7 @@
                 &kp F1  &kp F2  &kp F3  &kp F4  &kp F5         &kp F6        &kp F7        &kp F8    &kp F9      &kp F10   &kp F11  &kp F12
                 &trans  &trans  &trans  &trans  &trans         &kp C_BRI_UP  &kp C_VOL_UP  &trans    &kp PG_UP   &trans    &trans   &trans
         &studio_unlock  &trans  &trans  &trans  &trans         &kp C_BRI_DN  &kp C_VOL_DN  &mkp MB4  &kp PG_DN   &mkp MB5  &trans   &trans
-                          &bt BT_PRV &bt BT_NXT &bt_clr_hold2s &kp C_MUTE &trans &trans
+                          &bt BT_PRV &bt BT_NXT &bt_clr_hold2s BT_CLR &kp C_MUTE &trans
             >;
         };
     };
