@@ -38,8 +38,8 @@
             label = "CODE_LPAR_SHIFT_LT";
             #binding-cells = <0>;
             mods = <(MOD_LSFT | MOD_RSFT)>;
-            /* When shift is held, comma becomes '<' on most layouts */
-            bindings = <&kp LPAR>, <&kp COMMA>;
+            /* When shift is held, output '<' */
+            bindings = <&kp LPAR>, <&kp LT>;
         };
 
         code_rpar_shift_gt: code_rpar_shift_gt {
@@ -47,8 +47,8 @@
             label = "CODE_RPAR_SHIFT_GT";
             #binding-cells = <0>;
             mods = <(MOD_LSFT | MOD_RSFT)>;
-            /* When shift is held, dot becomes '>' on most layouts */
-            bindings = <&kp RPAR>, <&kp DOT>;
+            /* When shift is held, output '>' */
+            bindings = <&kp RPAR>, <&kp GT>;
         };
     };
 
