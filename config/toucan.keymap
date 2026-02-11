@@ -32,6 +32,24 @@
             hold-trigger-on-release;
             bindings = <&bt &trans>;
         };
+
+        code_lpar_shift_lt: code_lpar_shift_lt {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CODE_LPAR_SHIFT_LT";
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
+            /* When shift is held, comma becomes '<' on most layouts */
+            bindings = <&kp LPAR>, <&kp COMMA>;
+        };
+
+        code_rpar_shift_gt: code_rpar_shift_gt {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CODE_RPAR_SHIFT_GT";
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
+            /* When shift is held, dot becomes '>' on most layouts */
+            bindings = <&kp RPAR>, <&kp DOT>;
+        };
     };
 
     keymap {
@@ -50,7 +68,7 @@
         code {
             display-name = "CODE";
             bindings = <
-                &kp GRAVE &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT       &kp CARET &kp LPAR &kp STAR  &kp RPAR  &NOT_EQ    &trans
+                &kp GRAVE &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT       &kp CARET &code_lpar_shift_lt &kp STAR  &code_rpar_shift_gt  &NOT_EQ    &trans
                 &kp TILDE &kp N1   &kp N2 &kp N3   &kp N4   &kp N5          &kp MINUS &kp LBKT &kp UP    &kp RBKT  &kp SEMI   &kp BSLH
                 &trans    &kp N6   &kp N7 &kp N8   &kp N9   &kp N0          &kp AMPS  &kp LEFT &kp DOWN  &kp RIGHT &kp SLASH  &kp PIPE
                                           &trans   &trans   &kp DOT         &trans    &trans   &trans
