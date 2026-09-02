@@ -51,13 +51,23 @@
             bindings = <&kp RPAR>, <&kp GT>;
         };
 
+        code_rgui_if_alone: code_rgui_if_alone {
+            compatible = "zmk,behavior-hold-tap";
+            label = "CODE_RGUI_IF_ALONE";
+            #binding-cells = <0>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            retro-tap;
+            bindings = <&mo CODE>, <&kp RGUI>;
+        };
+
         code_lgui_rgui: code_lgui_rgui {
             compatible = "zmk,behavior-mod-morph";
             label = "CODE_LGUI_RGUI";
             #binding-cells = <0>;
             mods = <MOD_LGUI>;
             keep-mods = <MOD_LGUI>;
-            bindings = <&mo CODE>, <&kp RGUI>;
+            bindings = <&mo CODE>, <&code_rgui_if_alone>;
         };
     };
 
